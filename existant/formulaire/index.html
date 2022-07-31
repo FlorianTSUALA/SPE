@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<title></title>
+</head>
+<body>
+
+<section class="container mt-5 section-form" >
+	<div class="col-md-6 offset-md-3 p-md-3 ">
+		<form class="col-lg-12 col-md-12 ">
+			<div class="row mb-5">
+				<img class=" mx-auto d-block" src="assets/img/logo.svg" alt="logo" style="width:120px; height: 120px;">		
+			</div>
+			<div class="row mb-5">
+				<h4><center><b>FORMULAIRE D'ADHESION</b></center></h4>
+			</div>
+			<div class="row">
+				<h6><b>VOS INFORMATIONS PERSONNELLES </b></h6>
+				<div class="mb-3">
+					<select class="form-select " name="civilite" id="civilite">
+					  <option selected>Civilité</option>
+					  <option value="M">M</option>
+					  <option value="MME">MME</option>
+					  <option value="MLLE">MLLE</option>
+					</select>					
+				</div>				
+				<div class=" mb-3">
+				  <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" required>
+				  
+				</div>
+				<div class=" mb-3">
+				  <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" required>
+				  
+				</div>
+				<div class="form-floating mb-3">
+				  <input type="date" class="form-control" name="date_naissance" id="date_naissance" placeholder="Date de naissance" required>
+				  <label class="ps-4"> Date de naissance</label>
+				</div>
+				<div class="mb-3">
+				  <input type="tel" class="form-control" name="contact" id="contact" placeholder="Contact" required>			  
+				</div>
+				<div class="mb-3">
+					<select class="form-select" name="ville" id="ville">
+					  <option selected>Ville</option>
+					  <option value="Libreville">Libreville</option>
+					  <option value="Owendo">Owendo</option>
+					  <option value="Akanda">Akanda</option>
+					  <option value="Ntoum">Ntoum</option>
+					</select>			  
+				</div>				
+				<div class="mb-3">
+				  <input type="text" class="form-control" name="lieu_residence" id="lieu_residence" placeholder="Lieu de résidence (Ex: Louis)" required>			  
+				</div>
+				<div class="mb-3">
+				  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>			  
+				</div>				
+				<div class="mb-3">
+					<select class="form-select" name="situation" id="situation">
+					  <option selected>Situation socio-professionnelle </option>
+					  <option value="Salarie">Salarie</option>
+					  <option value="Sans emploi">Sans emploi</option>
+					  <option value="Etudiant">Etudiant</option>
+					</select>			  
+				</div>
+				<div class="">
+					<select class="form-select " name="employeur" id="employeur">
+					  <option selected>Etes vous déjà assuré?</option>
+					  <option value="Oui">Oui</option>
+					  <option value="Non">Non</option>
+					</select>					
+				</div>
+
+			</div><br>
+			<div class="row">
+				<h6><b>Combien de personnes souhaitez-vous faire beneficiez de l’offre SAMED? </b></h6>
+				<div class="mb-3">
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" value="Pack Standard" id="offre_samed1" name="offre_samed">
+					  <label class="form-check-label" for="offre_samed1">
+					    1
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" value="Pack Duo" id="offre_samed2" name="offre_samed">
+					  <label class="form-check-label" for="offre_samed2">
+					    2
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" value="Pack Family Lite" id="offre_samed3" name="offre_samed">
+					  <label class="form-check-label" for="offre_samed3">
+					    3
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" value="Pack Family Lite" id="offre_samed4" name="offre_samed">
+					  <label class="form-check-label" for="offre_samed">
+					    4
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" value="Pack Family Lite" id="offre_samed5" name="offre_samed">
+					  <label class="form-check-label" for="offre_samed5">
+					    5
+					  </label>
+					</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="radio" value="Pack Family Extra" id="offre_samed6" name="offre_samed">
+					  <label class="form-check-label" for="offre_samed6">
+					    Plus de 5
+					  </label>
+					</div>										
+
+				</div>
+				<div class=" mb-3">
+				  <input type="text" class="form-control" name="pack" id="pack" placeholder="Pack" readonly> 
+				</div>
+				
+
+			<div class="row">
+				<h6><b>Frais d’adhesion annuel (12 Mois) </b></h6>
+				<div class="mb-3 abonnement">
+					<input type="text" class="form-control" name="abonnement_annuel" id="abonnement_annuel" placeholder="Salaire net" value="5.000 FCFA" required disabled>
+				</div>
+				<div class="mb-3">
+					<select class="form-select " name="moyens_paiement" id="moyens_paiement">
+					  <option selected>Choisissez un moyen de paiement</option>
+					  <option value="Airtel Money">Airtel Money</option>
+					  <option value="Moov Money">Moov Money</option>
+					</select>					
+				</div>	
+				<div class=" mb-3">
+				  <input type="number" class="form-control" name="numero" id="numero" placeholder="Entrez votre numéro" required>				  
+				</div>							
+				<div class="mb-3">
+					<a href="condition.html" target="_blank">Voir les conditions d'abonnement</a>
+				</div>
+				<div class="form-check  ms-3 mb-3">
+				  <input class="form-check-input" type="checkbox" value="" name="si_adhesion" id="si_adhesion">
+				  <label class="form-check-label" for="si_adhesion">
+				    J’ai lu et accepte les conditions de souscription
+				  </label>
+				</div>
+			</div>
+			<div class="row mb-5">
+				<input class="submit" type="submit" name="valider" value="PAYER">
+			</div>	
+		</form>		
+	</div> <br><br>
+</section>
+
+<script type="text/javascript" src="assets/js/index.js"></script>
+</body>
+</html>

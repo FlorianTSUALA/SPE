@@ -1,0 +1,27 @@
+
+.section-form{
+	overflow-x: hidden !important;
+}
+
+@media (min-width:767px) {
+	.section-form .col-md-6{
+		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+	}
+}
+
+.section-form  .abonnement input{
+	background-color: white !important;
+}
+
+.section-form .submit{
+	background-color: #81bc00 !important;
+	color: black;
+	width: 40% !important;
+	margin-right: 30% !important;
+	margin-left: 30% !important;
+	border: none !important;
+	font-weight: bold;
+	padding: 7px;
+	border-radius: 5px;	
+}
+

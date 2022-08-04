@@ -1,0 +1,40 @@
+
+.section-form{
+	overflow-x: hidden !important;
+}
+
+@media (min-width:767px) {
+	.section-form .col-md-6{
+		box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+	}
+}
+
+.section-form  .abonnement input{
+	background-color: white !important;
+}
+#pack{
+	background-color: white !important;
+}
+
+form .submit{
+
+	width: 40% !important;
+	margin-right: 30% !important;
+	margin-left: 30% !important;
+	border: none !important;
+	font-weight: bold;
+	padding: 7px;
+	border-radius: 5px;	
+	background-color: #0A416A !important;
+	color: white;
+}
+.conditions{
+	text-align: justify;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+	line-height: 28px;
+
+}
+.conditions p{
+	font-size: 14px;
+}
+

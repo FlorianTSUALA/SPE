@@ -39,3 +39,8 @@ If you are facing any issues regarding the permissions, then you need to run the
 PHP
 sudo chmod -R o+rw bootstrap/cache
 sudo chmod -R o+rw storage
+
+
+###
+
+php artisan make:model TransactionSamed --migration

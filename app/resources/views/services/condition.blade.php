@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/style_samed.css" rel="stylesheet">
+	<link href="assets_form/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets_form/css/style_samed.css" rel="stylesheet">
 	<title></title>
 </head>
 <body class="bg-light">
@@ -25,7 +25,7 @@
 				SAMED se réserve la possibilité de modifier
 				les présentes, à tout moment par la
 				publication d'une nouvelle version sur son site
-				Internet.				
+				Internet.
 			</p>
 			<p class="text-muted">
 				SAMED s'assure également que leurs
@@ -37,13 +37,13 @@
 			<p class="text-muted">
 				L’adhérent au service SAMED déclare avoir
 				pris connaissance de l'ensemble des
-				présentes Conditions Générales.				
+				présentes Conditions Générales.
 			</p>
 			<p class="text-muted">
 				L’adhérent au service SAMED reconnaît qu'il
 				a bénéficié des conseils et informations
 				nécessaires afin de s'assurer de l'adéquation
-				de l'offre à ses besoins.				
+				de l'offre à ses besoins.
 			</p>
 			<p class="text-muted">
 				L’adhérent au service SAMED déclare être en
@@ -75,7 +75,7 @@
 				de santé listé sur son site Internet, page
 				Facebook, compte Whatsapp business, sur
 				son Application mobile ou par simple appel
-				011749832.				
+				011749832.
 			</p>
 		</section>
 		<section class="mb-3">
@@ -97,7 +97,7 @@
 				ticket modérateur ou le tiers payant de celui-
 				ci; et pour les non assurés, les
 				réductions sont appliquées directement sur le
-				tarif des prestations sollicitées.			
+				tarif des prestations sollicitées.
 			</p>
 			<p class="text-muted">
 				Le détail de ces modalités sont disponibles sur
@@ -120,7 +120,7 @@
 				Et pour ce qui est des ayants droits, l'identifiant
 				de l’adhérent principal et une pièce d’identité
 				ou acte de naissance pouvant permettre de
-				vérifier son identité seront requises.				
+				vérifier son identité seront requises.
 			</p>
 		</section>
 		<section class="mb-3">
@@ -133,7 +133,7 @@
 				www.samed-ga.com, au sein de l’application
 				mobile, via un agent SAMED, des liens de
 				paiement SAMED ou auprès d’un agent
-				commercial SAMED.				
+				commercial SAMED.
 			</p>
 			<p class="text-muted">
 				Pour adhérer au service SAMED, l'Adhérent
@@ -147,7 +147,7 @@
 				Les informations du bulletin d’adhésion qui ont
 				un caractère obligatoire sont indispensables
 				pour la validation de l’adhésion au service
-				SAMED.				
+				SAMED.
 			</p>
 			<p class="text-muted">
 				SAMED ne pourra être tenu responsable de
@@ -156,16 +156,16 @@
 				seront incomplètes, ou erronées. L'Adhérent
 				garantie l'exactitude, l'intégrité et la véracité
 				des données et informations transmises lors de
-				son adhésion au service SAMED.				
+				son adhésion au service SAMED.
 			</p>
 			<p class="text-muted">
 				A l’issue de cette adhésion, l'Adhérent se verra
 				remettre un numéro unique d’adhésion dont il
 				sera le seul et l’unique titulaire. Cet identifiant
 				servira également pour vérifier la filiation entre
-				l'adhérent et ses ayants droits.				
+				l'adhérent et ses ayants droits.
 			</p>
-		</section>	
+		</section>
 		<section class="mb-3">
 			<h4>5. ADHESION ET COTISATIONS.</h4>
 			<p class="text-muted">
@@ -173,7 +173,7 @@
 				l'adhérent devra s'acquitter intégralement des
 				frais d'adhésion annuelle et de ses cotisations
 				annuelles ou mensuelles en fonction du pack
-				souscrit:	
+				souscrit:
 				<ul class="text-muted">
 					<li>
 						Frais d’adhésion : 5000 XAF obligatoire quelle que soit la formule valable 1 an.
@@ -190,13 +190,13 @@
 					<li>
 						Pack Family Extra : 8.400 XAF/Mois valable pour 10 personnes.
 					</li>
-				</ul>			
+				</ul>
 			</p>
 			<p class="text-muted">
 				Pour bénéficier du service, l’adhérent devra
 				s’acquitter de ses frais d'adhésion et de ses
 				côtisations mensuelles ou annuelles dans leurs
-				totalités.				
+				totalités.
 			</p>
 			<p class="text-muted">
 				Les paiements se feront soit par espèce, par
@@ -208,9 +208,9 @@
 				(sur le site www.samed-ga.com, par courrier
 				électronique ou par SMS). Les frais d'adhésion
 				et de côtisation ne sont ni échangés, ni
-				remboursables.				
+				remboursables.
 			</p>
-		</section>	
+		</section>
 		<section class="mb-3">
 			<h4>6. COLLECTE ET UTILISATION DES DONNEES PERSONNELLES.</h4>
 			<p class="text-muted">
@@ -231,7 +231,7 @@
 				En écrivant à SAMED dont le siège est situé à
 				l'Avenue Vincent NKOUNAH sis au carrefour
 				Léon MBA, ou en envoyant un e-mail par notre
-				formulaire de contact sur www.samed-ga.com				
+				formulaire de contact sur www.samed-ga.com
 			</p>
 		</section>
 		<section class="mb-3">
@@ -253,7 +253,7 @@
 				forces majeurs qui pourraient empêcher la
 				disponibilité du service ou de sa plateforme
 				d'identification de ses adhérents et pouvant
-				créer un désagrément à ses derniers.				
+				créer un désagrément à ses derniers.
 			</p>
 		</section>
 		<section class="mb-3">
@@ -264,9 +264,9 @@
 				SAMED, accepte de s'engager au service pour
 				une durée annuelle qui prends effet à partir de
 				la date de signature du présent bulletin
-				d'adhésion.				
+				d'adhésion.
 			</p>
-		</section>									
+		</section>
 	</div>
 </section>
 

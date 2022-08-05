@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="{{ asset('assets_form/css/bootstrap.min.css')}}" rel="stylesheet">
+	<link href="{{ asset('assets_form/css/style_samed.css')}}" rel="stylesheet">
 	<title></title>
 </head>
 <body>
@@ -12,7 +12,7 @@
 		<div class="col-md-6 offset-md-3 p-md-3 ">
 			<form class="col-lg-12 col-md-12 ">
 				<div class="row mb-5">
-					<img class=" mx-auto d-block" src="assets/img/logo.svg" alt="logo" style="width:120px; height: 120px;">
+					<img class=" mx-auto d-block" src="{{ asset('assets_form/img/logo.svg')}}" alt="logo" style="width:120px; height: 120px;">
 				</div>
 				<div class="row mb-5">
 					<h4><center><b>FORMULAIRE D'ADHESION</b></center></h4>
@@ -151,6 +151,6 @@
 			</form>
 		</div> <br><br>
 	</section>
-<script type="text/javascript" src="assets/js/index.js"></script>
+<script type="text/javascript" src="{{ asset('assets_form/js/index.js') }}"></script>
 </body>
 </html>

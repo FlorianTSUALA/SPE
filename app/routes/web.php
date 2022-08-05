@@ -15,6 +15,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartsController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ use App\Http\Controllers\ChartsController;
 
 // Main Page Route
 Route::get('/', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics');
+
+Route::get('/service/kredigo', [ServiceController::class, 'kredigo'])->name('service-kredigo');
+Route::get('/service/samed', [ServiceController::class, 'samed'])->name('service-samed');
+Route::get('/service/condition', [ServiceController::class, 'condition'])->name('service-condition');
 
 
 /* Route Dashboards */

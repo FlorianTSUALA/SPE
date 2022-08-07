@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class nTransactionController extends Controller
+class TransactionController extends Controller
 {
     public function callback_sucess(Request $request, String $status)
     {

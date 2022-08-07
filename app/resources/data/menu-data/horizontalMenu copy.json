@@ -1,0 +1,116 @@
+{
+    "menu": [
+      {
+        "name": "Dashboards",
+        "badge": "2",
+        "badgeClass": "badge badge-light-warning rounded-pill ms-auto me-1",
+        "icon": "home",
+        "slug": "",
+        "submenu": [
+          {
+            "url": "dashboard/acceuil",
+            "name": "Acceuil",
+            "icon": "circle",
+            "slug": "dashboard-acceuil"
+          }
+        ]
+      },
+      {
+        "navheader": "Nos Services",
+        "slug": ""
+      },
+      {
+        "url": "service/samed",
+        "name": "Samed",
+        "icon": "eye",
+        "slug": "service-samed"
+      },
+      {
+        "url": "service/kredigo",
+        "name": "Kredigo",
+        "icon": "eye",
+        "slug": "service-samed"
+      },
+      {
+        "navheader": "Gestion Compte",
+        "slug": ""
+      },
+      {
+        "name": "Profile",
+        "icon": "user",
+        "slug": "",
+        "submenu": [
+          {
+            "url": "app/user/list",
+            "name": "List",
+            "icon": "circle",
+            "slug": "app-user-list"
+          },
+          {
+            "name": "View",
+            "icon": "circle",
+            "slug": "",
+            "submenu": [
+              {
+                "url": "app/user/view/account",
+                "name": "Account",
+                "slug": "app-user-view-account"
+              },
+              {
+                "url": "app/user/view/security",
+                "name": "Security",
+                "slug": "app-user-view-security"
+              },
+              {
+                "url": "app/user/view/billing",
+                "name": "Billings & Plans",
+                "slug": "app-user-view-billing"
+              },
+              {
+                "url": "app/user/view/notifications",
+                "name": "Notifications",
+                "slug": "app-user-view-notifications"
+              },
+              {
+                "url": "app/user/view/connections",
+                "name": "Connections",
+                "slug": "app-user-view-connections"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Paramtrage",
+        "icon": "user-check",
+        "slug": "",
+        "submenu": [
+            {
+            "url": "page/account-settings-account",
+            "name": "Account",
+            "slug": "page-account-settings-account"
+            },
+            {
+            "url": "page/account-settings-security",
+            "name": "Security",
+            "slug": "page-account-settings-security"
+            },
+            {
+            "url": "page/account-settings-billing",
+            "name": "Billings & Plans",
+            "slug": "page-account-settings-billing"
+            },
+            {
+            "url": "page/account-settings-notifications",
+            "name": "Notifications",
+            "slug": "page-account-settings-notifications"
+            },
+            {
+            "url": "page/account-settings-connections",
+            "name": "Connections",
+            "slug": "page-account-settings-connections"
+            }
+        ]
+      }
+    ]
+  }

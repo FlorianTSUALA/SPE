@@ -20,14 +20,15 @@ return new class extends Migration
             $table->string('payment_token');
             $table->string('payment_method');
             $table->string('description');
-            $table->string('statusRequest');
+            $table->string('status_request');
 
             $table->string('transaction_amount');
             $table->string('transaction_currency');
             $table->string('transaction_country');
-            $table->string('transaction_id');
 
-            // $table->string('unique_id', 64)->unique();
+            $table->string('type_service'); //['kredigo', 'samed']
+            $table->string('transaction_service_id');
+            
 
             $table->timestamps();
         });

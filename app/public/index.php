@@ -53,3 +53,7 @@ $response = $kernel->handle(
 )->send();
 
 $kernel->terminate($request, $response);
+
+
+// MIX_BASE_URL=/xolens/laravel/laravel/public
+// MIX_API_URL=/xolens/laravel/laravel/public/api

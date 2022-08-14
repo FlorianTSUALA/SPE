@@ -101,3 +101,60 @@ class BlogController extends BaseController
 
 
 {{ asset($item->photo) }}
+
+
+//js/main.js
+
+axios.defaults.headers.common = {
+    'X-CSRF-TOKEN': your_csrfToken,
+    'X-Requested-With': 'XMLHttpRequest',
+    'Authorization': 'Bearer ' + yourToken,
+
+};
+
+
+
+
+$validatedData = $request->validate([
+       'f_name' => 'required|min:8',
+       'l_name' => 'required',
+   ],
+   [
+    'f_name.required'=> 'Your First Name is Required', // custom message
+    'f_name.min'=> 'First Name Should be Minimum of 8 Character', // custom message
+    'l_name.required'=> 'Your Last Name is Required' // custom message
+   ]
+);
+
+https://laracasts.com/discuss/channels/laravel/sanctum-api-logout?page=1&replyId=741713
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.youtube.com/watch?v=_twnXKs-My4&t=784s
+
+https://hackthestuff.com/article/laravel-8-sanctum-api-authentication-tutorial
+https://www.youtube.com/watch?v=LgD9yyag7Lk
+https://www.youtube.com/watch?v=HMyWg5JxrZg&t=286s
+
+https://www.youtube.com/watch?v=ul3t3YpTXM8
+https://www.youtube.com/watch?v=_twnXKs-My4
+https://readerstacks.com/laravel-ajax-login-and-registration-with-example/

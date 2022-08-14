@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Validator;
 
 class AuthController extends Controller
 {
@@ -19,11 +18,11 @@ class AuthController extends Controller
     public function response($user, $code=200, $page=null){
         $token = $user->createToken(str()->random(40))->plainTextToken;
         return response()->json([
-        'page' => "",
-        'message' => 'L\'utilisateur a été créé avec succès!',
-        'accessToken'=> $token,
-        'user'=> $user,
-        'token_type'=> 'Bearer',
+            'page' => $page??route('dashboard-acceuil'),
+            'message' => 'L\'utilisateur a été créé avec succès!',
+            'accessToken'=> $token,
+            'user'=> $user,
+            'token_type'=> 'Bearer',
         ], $code);
     }
 
@@ -38,8 +37,8 @@ class AuthController extends Controller
     */
     public function register(Request $request)
     {
-       try{
-           $request->validate([
+       //try{
+            $request->validate([
                 'name' => 'required|string',
                 'email'=>'required|string|unique:users',
                 'password'=>'required',
@@ -57,12 +56,14 @@ class AuthController extends Controller
             } else {
                 return response()->json(['error'=>'Provide proper details']);
             }
+        /*
         }catch(\Throwable $th) {
             return response()->json([
                 'status' => false,
                 'message' => $th->getMessage()
             ], 500);
         }
+        */
     }
 
     /**
@@ -79,12 +80,8 @@ class AuthController extends Controller
             'password' => 'required|string|min:4',
             'remember_me' => 'boolean'
         ]);
-
-        // if (Auth::attempt(['email' => $email, 'password' => $password, 'active' => 1])) {
-        //     // The user is active, not suspended, and exists.
-        // }
-        // $credentials = request(['email','password','remember_me']);
-        if(!Auth::attempt(['email' => $request->email, 'password' => $request->password, 'remember_me' => $request->password]))
+        // $credentials = $request([['email', 'password',]]);
+        if(!Auth::attempt(['email' => $request->email, 'password' => $request->password],  $request->remember_me))
         {
             return response()->json([
                 'message' => 'Unauthorized'
@@ -97,6 +94,7 @@ class AuthController extends Controller
 
         return $this->response(Auth::user());
     }
+
 
     /**
      * Get the authenticated User
@@ -115,15 +113,20 @@ class AuthController extends Controller
     */
     public function logout(Request $request)
     {
+
         $request->user()->tokens()->delete();
 
+        Auth::guard('web')->logout();
+
+
         return response()->json([
-        'message' => 'Successfully logged out'
+            'message' => 'Successfully logged out',
+            'status' => true
         ]);
 
     }
 
-    public function sendPasswordResetLinkEmail(Request $request) {
+    public function send_password_reset_link_email(Request $request) {
 		$request->validate(['email' => 'required|email']);
 
 		$status = Password::sendResetLink(
@@ -139,7 +142,7 @@ class AuthController extends Controller
 		}
 	}
 
-	public function resetPassword(Request $request) {
+	public function reset_password(Request $request) {
 		$request->validate([
 			'token' => 'required',
 			'email' => 'required|email',

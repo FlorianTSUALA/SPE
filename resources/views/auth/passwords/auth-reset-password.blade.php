@@ -69,25 +69,25 @@
               </g>
             </g>
           </svg>
-          <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+          <h2 class="brand-text text-primary ms-1">Bill Gabon</h2>
         </a>
 
-        <h4 class="card-title mb-1">Reset Password 🔒</h4>
-        <p class="card-text mb-2">Your new password must be different from previously used passwords</p>
+        <h4 class="card-title mb-1">Réinitialiser le mot de passe 🔒</h4>
+        <p class="card-text mb-2">Votre nouveau mot de passe doit être différent des mots de passe précédemment utilisés.</p>
 
         <form class="auth-reset-password-form mt-2" action="/auth/login-basic" method="GET">
           <div class="mb-1">
             <div class="d-flex justify-content-between">
-              <label class="form-label" for="reset-password-new">New Password</label>
+              <label class="form-label" for="password">Nouveau mot de passe</label>
             </div>
             <div class="input-group input-group-merge form-password-toggle">
               <input
                 type="password"
                 class="form-control form-control-merge"
-                id="reset-password-new"
-                name="reset-password-new"
+                id="password"
+                name="password"
                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                aria-describedby="reset-password-new"
+                aria-describedby="password"
                 tabindex="1"
                 autofocus
               />
@@ -96,26 +96,26 @@
           </div>
           <div class="mb-1">
             <div class="d-flex justify-content-between">
-              <label class="form-label" for="reset-password-confirm">Confirm Password</label>
+              <label class="form-label" for="password_confirmation">Confirmer le mot de passe</label>
             </div>
             <div class="input-group input-group-merge form-password-toggle">
               <input
                 type="password"
                 class="form-control form-control-merge"
-                id="reset-password-confirm"
-                name="reset-password-confirm"
+                id="password_confirmation"
+                name="password_confirmation"
                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                aria-describedby="reset-password-confirm"
+                aria-describedby="password_confirmation"
                 tabindex="2"
               />
               <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
             </div>
           </div>
-          <button class="btn btn-primary w-100" tabindex="3">Set New Password</button>
+          <button class="btn btn-primary w-100" tabindex="3">Définir un nouveau mot de passe</button>
         </form>
 
         <p class="text-center mt-2">
-          <a href="{{url('auth/login-basic')}}"> <i data-feather="chevron-left"></i> Back to login </a>
+          <a href="{{route('home')}}"> <i data-feather="chevron-left"></i> Retour à la page d'accueil </a>
         </p>
       </div>
     </div>

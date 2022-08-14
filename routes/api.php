@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('login', [AuthController::class, 'login'])->name('api_login');
+    Route::post('login', [AuthController::class, 'login'])->name('api.login');
     Route::post('register', [AuthController::class, 'register'])->name('api.register');
 
     Route::post('/password/email', [AuthController::class, 'sendPasswordResetLinkEmail'])->middleware('throttle:5,1')->name('password.email');

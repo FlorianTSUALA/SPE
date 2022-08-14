@@ -1,15 +1,17 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Verify Email Basic')
+@section('title', 'Forgot Password')
 
 @section('page-style')
+  {{-- Page Css files --}}
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/pages/authentication.css')) }}">
 @endsection
 
 @section('content')
 <div class="auth-wrapper auth-basic px-2">
   <div class="auth-inner my-2">
-    <!-- verify email basic -->
+    <!-- Forgot Password basic -->
     <div class="card mb-0">
       <div class="card-body">
         <a href="#" class="brand-logo">
@@ -67,23 +69,43 @@
               </g>
             </g>
           </svg>
-          <h2 class="brand-text text-primary ms-1">Vuexy</h2>
+          <h2 class="brand-text text-primary ms-1">Bill Gabon</h2>
         </a>
 
-        <h2 class="card-title fw-bolder mb-1">Verify your email ✉️</h2>
-        <p class="card-text mb-2">
-          We've sent a link to your email address: <span class="fw-bolder">hello@pixinvent.com</span> Please follow the
-          link inside to continue.
-        </p>
+        <h4 class="card-title mb-1">Mot de passe oublié? 🔒</h4>
+        <p class="card-text mb-2">Saisissez votre adresse électronique et nous vous enverrons les instructions pour réinitialiser votre mot de passe.</p>
 
-        <a href="{{asset('/')}}" class="btn btn-primary w-100">Skip for now</a>
+        <form class="auth-forgot-password-form mt-2" action="{{route('reset_password')}}" method="POST">
+          <div class="mb-1">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="billgabon@gmail.com"
+              aria-describedby="email"
+              tabindex="1"
+              autofocus
+            />
+          </div>
+          <button class="btn btn-primary w-100" tabindex="2">Envoyer le lien de réinitialisation</button>
+        </form>
 
         <p class="text-center mt-2">
-          <span>Didn't receive an email? </span><a href="Javascript:void(0)"><span>&nbsp;Resend</span></a>
+          <a href="{{route('login')}}"> <i data-feather="chevron-left"></i> Retour à la page d'accueil </a>
         </p>
       </div>
     </div>
-    <!-- / verify email basic -->
+    <!-- /Forgot Password basic -->
   </div>
 </div>
+@endsection
+
+@section('vendor-script')
+<script src="{{asset(mix('vendors/js/forms/validation/jquery.validate.min.js'))}}"></script>
+@endsection
+
+@section('page-script')
+<script src="{{asset(mix('js/scripts/pages/auth-forgot-password.js'))}}"></script>
 @endsection

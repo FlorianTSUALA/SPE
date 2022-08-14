@@ -10,4 +10,14 @@ return [
     "Nos Services" => "Nos services",
     "Samed" => "Samed",
     "Kredigo" => "Kredigo",
+
+    "Acceuil" => "Acceuil",
+    "List" => "List",
+    "View" => "Détail",
+    "Paramtrage" => "Parametrage",
+    "Account" => "Compte",
+    "Security" => "Securité",
+    "Notifications" => "Notifications",
+    "Billings & Plans" => "Achat et forfait",
+    "Connections" => "Connections",
 ];

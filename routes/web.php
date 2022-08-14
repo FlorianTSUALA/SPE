@@ -59,25 +59,28 @@ use Illuminate\Support\Facades\Auth;
 
 */
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/connexion', [AuthenticationController::class, 'login'])->name('login');
 Route::get('/inscription', [AuthenticationController::class, 'register'])->name('register');
 Route::get('/inscription/etape', [AuthenticationController::class, 'register_multi_steps'])->name('register_multi_steps');
+Route::get('forgot-password', [AuthenticationController::class, 'forgot_password'])->name('auth-forgot-password');
+Route::get('reset-password', [AuthenticationController::class, 'reset_password'])->name('reset_password');
+Route::get('verify-email', [AuthenticationController::class, 'verify_email'])->name('auth-verify-email');
 
    /* Route Authentication Pages */
 Route::group(['prefix' => 'auth'], function () {
-    Route::get('login-basic', [AuthenticationController::class, 'login_basic'])->name('auth-login-basic');
+    // Route::get('/connexion', [AuthenticationController::class, 'login'])->name('logout');
+    Route::get('login', [AuthenticationController::class, 'login'])->name('auth-login');
+
+
     Route::get('login-cover', [AuthenticationController::class, 'login_cover'])->name('auth-login-cover');
-    Route::get('register-basic', [AuthenticationController::class, 'register_basic'])->name('auth-register-basic');
+    Route::get('register', [AuthenticationController::class, 'register'])->name('auth-register');
     Route::get('register-cover', [AuthenticationController::class, 'register_cover'])->name('auth-register-cover');
-    Route::get('forgot-password-basic', [AuthenticationController::class, 'forgot_password_basic'])->name('auth-forgot-password');
     Route::get('forgot-password-cover', [AuthenticationController::class, 'forgot_password_cover'])->name('auth-forgot-password-cover');
-    Route::get('reset-password-basic', [AuthenticationController::class, 'reset_password_basic'])->name('auth-reset-password-basic');
     Route::get('reset-password-cover', [AuthenticationController::class, 'reset_password_cover'])->name('auth-reset-password-cover');
-    Route::get('verify-email-basic', [AuthenticationController::class, 'verify_email_basic'])->name('auth-verify-email-basic');
     Route::get('verify-email-cover', [AuthenticationController::class, 'verify_email_cover'])->name('auth-verify-email-cover');
-    Route::get('two-steps-basic', [AuthenticationController::class, 'two_steps_basic'])->name('auth-two-steps-basic');
+    Route::get('two-steps', [AuthenticationController::class, 'two_steps'])->name('auth-two-steps');
     Route::get('two-steps-cover', [AuthenticationController::class, 'two_steps_cover'])->name('auth-two-steps-cover');
     Route::get('register-multisteps', [AuthenticationController::class, 'register_multi_steps'])->name('auth-register-multisteps');
     Route::get('lock-screen', [AuthenticationController::class, 'lock_screen'])->name('auth-lock_screen');
@@ -93,6 +96,7 @@ Route::group(['prefix' => 'service'], function () {
 
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
+    Route::get('/', [DashboardController::class, 'dashboardAdmin'])->name('home');
     Route::get('/', [DashboardController::class, 'dashboardAdmin'])->name('dashboard-acceuil');
 
     Route::get('/admin/service/{service}', [DashboardController::class, 'dashboardAdmin'])->name('services');

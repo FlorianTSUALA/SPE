@@ -77,6 +77,7 @@
         <p class="card-text mb-2">Connectez-vous à votre compte et commencez l'aventure.</p>
 
         <form class="auth-login-form mt-2" action="/okok" method="POST">
+
           <div class="mb-1">
             <label for="email" class="form-label">Email</label>
             <input
@@ -157,13 +158,13 @@ $(function () {
 
   var pageLoginForm = $('.auth-login-form');
   var isRtl = $('html').attr('data-textdirection') === 'rtl';
-  
+
   function get_url(tag){
     switch(tag){
       case 'inscription':
         return "{{route('api.register')}}";
       case 'connexion':
-        return "{{route('api_login')}}";
+        return "{{route('api.login')}}";
       default:
     }
   }
@@ -177,11 +178,11 @@ $(function () {
         onkeyup: function (element) {
           $(element).valid();
         },
-       
+
         //* ? To enable validation on focusout
         onfocusout: function (element) {
           $(element).valid();
-        }, 
+        },
         rules: {
           'email': {
             required: true,
@@ -189,7 +190,7 @@ $(function () {
           },
           'password': {
             required: true
-          }, 
+          },
         },
         messages : {
           email: {
@@ -205,22 +206,22 @@ $(function () {
           // $('#action').attr('disabled', true)
           $("#action").addClass('disabled')
           // setTimeout(_ => form.submit(), 20000)
-          
+
         }
       });
   }
- 
+
   pageLoginForm.submit(function( event ) {
       // let spinner = $(event.currentTarget).find('span')
       event.preventDefault();
-      
+
       if(!pageLoginForm.valid()){
         $("#action span").addClass('d-none')
         $("#action").removeClass('disabled')
         return
       }
       var formData = new FormData(pageLoginForm[0]), object = {}; formData.forEach(function(value, key){ object[key] = value; });
-      return fetch(`${get_url('connexion')}`, {method: 'post',body: JSON.stringify({"email": $('#email').val(), "password": $('#password').val(), "remember_me": $('#remember_me')[0].checked }), 
+      return fetch(`${get_url('connexion')}`, {method: 'post', body: JSON.stringify({ "_token": "{{ csrf_token() }}", "email": $('#email').val(), "password": $('#password').val(), "remember_me": $('#remember_me')[0].checked }),
                   headers:  {
                               'Accept': 'application/json',
                               'Content-Type': 'application/json'
@@ -228,14 +229,14 @@ $(function () {
           }).then(
           response => {
               // if (!response.done) throw new Error( response.json() )
-              $("#action span").addClass('d-none')
-              $("#action").removeClass('disabled')
+
               return response.json()
           }
       )
       .then((result) => {
         if(result.page != undefined){
           location.href = `${result.page}`;
+        $("#action").removeClass('disabled')
         }else{
           toastr['warning'](
               'Adresse mail ou mot de passe invalide!',
@@ -247,6 +248,9 @@ $(function () {
               }
           );
         }
+
+        $("#action span").addClass('d-none')
+        $("#action").removeClass('disabled')
       })
       .catch(error => {
         toastr['error'](

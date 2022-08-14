@@ -4,6 +4,7 @@
 
 @section('page-style')
   {{-- Page Css files --}}
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/pages/authentication.css')) }}">
 @endsection
@@ -75,7 +76,7 @@
         <h4 class="card-title mb-1">L'aventure commence ici 🚀</h4>
         <p class="card-text mb-2">Rendez la gestion de vos services facile et amusant!</p>
 
-        <form class="auth-register-form mt-2" action="/" method="GET">
+        <form class="auth-register-form mt-2" action="{{route('api.login')}}" method="POST">
           <div class="mb-1">
             <label for="name" class="form-label">Votre nom</label>
             <input
@@ -83,7 +84,7 @@
               class="form-control"
               id="name"
               name="name"
-              placeholder="big boss"
+              placeholder="Bill Gabon"
               aria-describedby="name"
               tabindex="1"
               autofocus
@@ -118,15 +119,15 @@
             </div>
           </div>
           <div class="mb-1">
-            <label for="password_confirm" class="form-label">Votre mot de passe</label>
+            <label for="password_confirmation" class="form-label">Repeter votre mot de passe</label>
             <div class="input-group input-group-merge form-password-toggle">
               <input
                 type="password"
                 class="form-control form-control-merge"
-                id="password_confirm"
-                name="password_confirm"
+                id="password_confirmation"
+                name="password_confirmation"
                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                aria-describedby="password_confirm"
+                aria-describedby="password_confirmation"
                 tabindex="3"
               />
               <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
@@ -148,7 +149,7 @@
 
         <p class="text-center mt-2">
           <span>Vous avez déjà un compte ?</span>
-          <a href="{{url('auth/login-basic')}}">
+          <a href="{{route('login')}}">
             <span>Se connecter</span>
           </a>
         </p>
@@ -168,6 +169,7 @@
 @endsection
 
 @section('vendor-script')
+<script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
 <script src="{{asset('vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
 @endsection
 
@@ -175,15 +177,15 @@
 <script>
 
 $(function () {
-  ('use strict');
-
-  var pageResetForm = $('.auth-register-form'),
+  'use strict';
+  console.log("welcome")
+  var pageRegisterForm = $('.auth-register-form');
     // select = $('.select2'),
     
   // jQuery Validation
   // --------------------------------------------------------------------
-  if (pageResetForm.length) {
-    pageResetForm.validate({
+  if (pageRegisterForm.length) {
+    pageRegisterForm.validate({
       //* ? To enable validation onkeyup*/
       onkeyup: function (element) {
         $(element).valid();
@@ -195,47 +197,44 @@ $(function () {
       }, 
       rules: {
         'name': {
-          required: true
+          required: true,
         },
         'email': {
           required: true,
           email: true
         },
         'password': {
-          required: true
+          required: true,
+          minlength: 8,
         },
-        'password_confirm': {
+        'password_confirmation': {
             required: true,
-            minlength: 8,
             equalTo: '#password'
         },
       },
       messages : {
+        name: {
+          required: "ce champs est obligatoire",
+        },
         email: {
           email: "Veuillez saisir une adresse mail correcte",
           required: "ce champs est obligatoire",
         },
         password: {
           required: "ce champs est obligatoire",
+          minlength: "Le mot de passe doit comporter au moins 8 caractères"
+        },
+        password_confirmation: {
+          required: "ce champs est obligatoire",
+          equalTo: "Le mot de passe doit-etre identique",
         }
       },
       submitHandler: function(form) {
         $("#action span").removeClass('d-none')
-        // $('#action').attr('disabled', true)
         $("#action").addClass('disabled')
-        // setTimeout(_ => form.submit(), 20000)
-        
       }
     });
   }
-
-});
-
-
-$(function () {
-  'use strict';
-
-  var pageLoginForm = $('.auth-login-form');
   var isRtl = $('html').attr('data-textdirection') === 'rtl';
   
   function get_url(tag){
@@ -243,56 +242,26 @@ $(function () {
       case 'inscription':
         return "{{route('api.register')}}";
       case 'connexion':
-        return "{{route('api_login')}}";
+        return "{{route('api.login')}}";
       default:
     }
   }
 
-  // jQuery Validation
-  var pageLoginFormValidation;
-  // --------------------------------------------------------------------
-  if (pageLoginForm.length) {
-       pageLoginFormValidation = pageLoginForm.validate({
-        //* ? To enable validation onkeyup
-        onkeyup: function (element) {
-          $(element).valid();
-        },
-       
-        //* ? To enable validation on focusout
-        onfocusout: function (element) {
-          $(element).valid();
-        }, 
-        rules: {
-          'email': {
-            required: true,
-            email: true
-          },
-          'password': {
-            required: true
-          }, 
-        },
-        
-      });
-  }
- 
-  pageLoginForm.submit(function( event ) {
-      // let spinner = $(event.currentTarget).find('span')
+  pageRegisterForm.submit(function( event ) {
       event.preventDefault();
-      
-      if(!pageLoginForm.valid()){
+      if(!pageRegisterForm.valid()){
         $("#action span").addClass('d-none')
         $("#action").removeClass('disabled')
         return
       }
-      var formData = new FormData(pageLoginForm[0]), object = {}; formData.forEach(function(value, key){ object[key] = value; });
-      return fetch(`${get_url('inscription')}`, {method: 'post',body: JSON.stringify({"email": $('#email').val(), "password": $('#password').val(), "remember_me": $('#remember_me')[0].checked }), 
+      var formData = new FormData(pageRegisterForm[0]), object = {}; formData.forEach(function(value, key){ object[key] = value; });
+      return fetch(`${get_url('inscription')}`, {method: 'post',body: JSON.stringify({ "_token": "{{ csrf_token() }}", "email": $('#email').val(), "name": $('#name').val(), "password_confirmation": $('#password_confirmation').val(), "password": $('#password').val()}), 
                   headers:  {
                               'Accept': 'application/json',
                               'Content-Type': 'application/json'
                             },
           }).then(
           response => {
-              // if (!response.done) throw new Error( response.json() )
               $("#action span").addClass('d-none')
               $("#action").removeClass('disabled')
               return response.json()
@@ -300,17 +269,38 @@ $(function () {
       )
       .then((result) => {
         if(result.page != undefined){
-          location.href = `${result.page}`;
-        }else{
           toastr['warning'](
-              'Adresse mail ou mot de passe invalide!',
-              'Oupss : erreur de connexion ',
+              'Félicitations, votre compte à bien été crée...',
+              'Bienvenue à Bill Gabon ',
               {
                 closeButton: true,
                 tapToDismiss: false,
                 rtl: isRtl
               }
           );
+          setTimeout(function(){location.href = `${result.page}`;}, 700)
+        }else{
+          if(result.errors.email){
+            toastr['warning'](
+                'Un compte est déja associé à cette adresse, veuillez saisir une autre!',
+                'Oupss : Adresse mail ',
+                {
+                  closeButton: true,
+                  tapToDismiss: false,
+                  rtl: isRtl
+                }
+            );
+          }else{
+            toastr['warning'](
+                'Adresse mail ou mot de passe invalide!',
+                'Oupss : erreur de connexion ',
+                {
+                  closeButton: true,
+                  tapToDismiss: false,
+                  rtl: isRtl
+                }
+            );
+          }
         }
       })
       .catch(error => {

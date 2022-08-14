@@ -33,67 +33,38 @@ class AuthenticationController extends Controller
     }
 
     // Forgot Password basic
-    public function forgot_password_basic()
+    public function forgot_password()
     {
         $pageConfigs = ['blankPage' => true];
 
-        return view('/auth/auth-forgot-password', ['pageConfigs' => $pageConfigs]);
-    }
-
-    // Forgot Password cover
-    public function forgot_password_cover()
-    {
-        $pageConfigs = ['blankPage' => true];
-
-        return view('/auth/auth-forgot-password-cover', ['pageConfigs' => $pageConfigs]);
+        return view('/auth/passwords/auth-forgot-password', ['pageConfigs' => $pageConfigs]);
     }
 
     // Reset Password basic
-    public function reset_password_basic()
+    public function reset_password()
     {
         $pageConfigs = ['blankPage' => true];
 
         return view('/auth/auth-reset-password', ['pageConfigs' => $pageConfigs]);
     }
 
-    // Reset Password cover
-    public function reset_password_cover()
-    {
-        $pageConfigs = ['blankPage' => true];
-
-        return view('/auth/auth-reset-password-cover', ['pageConfigs' => $pageConfigs]);
-    }
+  
 
     // email verify basic
-    public function verify_email_basic()
+    public function verify_email()
     {
         $pageConfigs = ['blankPage' => true];
 
         return view('/auth/auth-verify-email', ['pageConfigs' => $pageConfigs]);
     }
 
-    // email verify cover
-    public function verify_email_cover()
-    {
-        $pageConfigs = ['blankPage' => true];
-
-        return view('/auth/auth-verify-email-cover', ['pageConfigs' => $pageConfigs]);
-    }
-
+ 
     // two steps basic
-    public function two_steps_basic()
+    public function two_steps()
     {
         $pageConfigs = ['blankPage' => true];
 
         return view('/auth/auth-two-steps', ['pageConfigs' => $pageConfigs]);
-    }
-
-    // two steps cover
-    public function two_steps_cover()
-    {
-        $pageConfigs = ['blankPage' => true];
-
-        return view('/auth/auth-two-steps-cover', ['pageConfigs' => $pageConfigs]);
     }
 
 
